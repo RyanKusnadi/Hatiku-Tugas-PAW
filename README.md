@@ -1,5 +1,8 @@
 # Hatiku - Cardiovascular Health Webapp
 
+Link (website, API, video youtube, canva)
+https://linktr.ee/PAWKelompok16
+
 Sebuah web application untuk mendiagnosis penyakit cardiovascular pada user. Diharapkan dengan adanya diagnosis dini, user dapat memberikan penanganan lebih cepat jika memang terindikasi penyakit cardivascular. Dengan begitu kemungkinan untuk sembuh akan lebih besar. 
 
 *Source code API AI ada di branch Hatiku-ML
@@ -12,75 +15,94 @@ Sebuah web application untuk mendiagnosis penyakit cardiovascular pada user. Dih
 4. Putri Ayu Shintaningrum - 20/460559/TK/51148
 5. Ryan Kusnadi - 20/463613/TK/51605
 
+#NOTE: <url> adalah link API yang terlampir di linktree, atau ip adress jika anda me-run server secara lokal.
+
+# Cara run server-CRUD
+1. Sebelum kita menjalankan server, jalankan npm install untuk menginstall dependency yang ada agar API berjalan dengan baik
+2. Setelah selesai menginstall, jalankan perintah npm start untuk menjalankan server API.
+3. Server sukses berjalan bila pada console terdapat log Database Connected.
+4. Server dapat diakses pada <url/>
+5. Untuk mendapatkan data dari API (GET), hanya perlu menuju <url/>/patients
+6. Untuk melakukan POST, perlu menyeragamkan JSON menjadi format seperti berikut ini :
+	"name": "ryan",
+        "age": 18,
+        "height": 165,
+        "weight": 55,
+        "gender": 1,
+        "ap_hi": 130,
+        "ap_lo": 85,
+        "cholestrol": 1,
+        "gluc": 1,
+        "smoke": false,
+        "alco": false,
+        "active": true,
+        "cardio": false,
+
+setelah itu dapat dikirimkan menuju <url/>/patients
+
+#Requirement Server Diagnosis
+fastapi
+experta
+pandas
+numpy
+sklearn
+uvicorn
+
 # Cara run server-diagnosis
+1. install semua dependencies
+2. run command: "uvicorn apps.server-diagnosis.main:app --reload" di console.
 
-# Getting Started with Create React App
+Dokumentasi path server-diagnosis:
+1. <url>/ -> (GET) berisi home, message cara penggunaan.
+2. <url>/diagnosis/ -> (POST) menerima JSON berisi data pengguna, dan memberikan output diagnosis.
+3. <url>/retrain/ -> (POST) menarik data dari mongoDB dan meretrain model ML.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Input /diagnosis/ :
+{"age":51,
+"gender":1,
+"height":155,
+"weight":120,
+"ap_hi":190,
+"ap_lo":80,
+"cholesterol":2,
+"gluc":2,
+"smoke":1,
+"alco":1,
+"active":1,
+"racial_identity":"african",
+"blood_clotting_disorder":1,
+"kidney_disease":1,
+"chest_pains":1,
+"breathlessness":1,
+"nausea":1,
+"faintings":1,
+"fatigue":1,
+"swollen_ankles":1,
+"drastic_weight_changes":1, 
+"bloating":1,
+"loss_of_appetite":1,
+"dizziness_confusion":1,
+"palpitations":1,
+"atrial_fibrillation":1,
+"sudden_headache":1,
+"sudden_lossofvision":1,
+"face_dropping":1,
+"numbness":1,
+"speech_problem":1,
+"leg_pain_cramping":1,
+"burning_aching_toes":1,
+"cool_feet_skin":1,
+"redness_colorchanges_skin":1,
+"back_pain":1,
+"coughing":1,
+"hoarseness":1,
+"tenderness_pain_chest":1,
+"sharp_sudden_pain_upperback":1,
+"pain_chest_jaw_neck_arms":1,
+"loss_of_consciousness":1,
+"difficulty_breathing":1,
+"trouble_swallowing_food":1,
+"deep_constant_belly_pain":1,
+"family_history_coronaryheartdisease":1,
+"personal_family_history_blood_bloodvesseldisease":1
+}
