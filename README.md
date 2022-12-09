@@ -1,6 +1,6 @@
 # Hatiku - Cardiovascular Health Webapp
 
-Link (website, API, video youtube, canva)
+Link (website, API, video youtube, canva, repositories)
 https://linktr.ee/PAWKelompok16
 
 Sebuah web application untuk mendiagnosis penyakit cardiovascular pada user. Diharapkan dengan adanya diagnosis dini, user dapat memberikan penanganan lebih cepat jika memang terindikasi penyakit cardivascular. Dengan begitu kemungkinan untuk sembuh akan lebih besar. 
